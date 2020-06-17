@@ -2,7 +2,8 @@
 
 ## How to Run
 1. Open the project in Visual Studio
-2. Install npm and nodejs
+2. Install npm and nodejs as:
+   npm install
 3. Install modules as:
    npm install mongoose
    npm install express
