@@ -1,0 +1,397 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+  <title>Employee Appraisal</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/ngProgress.css">
+<link rel="stylesheet" href="css/toaster.css">
+<link rel="stylesheet" href="css/main.css">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- /custom style sheet -->
+    <!-- fontawesome css -->
+    <link href="css/fontawesome-all.css" rel="stylesheet" />
+    <!-- /fontawesome css -->
+    <!-- google fonts-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+</style>
+</head>
+<body>
+ 
+
+  <div class="container bg main-form"  ng-controller="EmpCtrl">
+    
+    
+    <!--Fill form Part-->
+    <div ng-show='fillCtrl'>
+     <div class=" w3l-login-form">
+
+    
+    <form name="Appraisal" novalidate>
+    <table class="table">
+      <thead>
+        <tr>
+		  
+          <th>Employee Name</th>
+		  <th>Manager Name</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td><input class="form-control" ng-model="emp.name" required="true" placeholder="Employee Name"></td>
+		  <td><input class="form-control" ng-model="emp.mname" required="true" placeholder="Manager Name"></td>
+		</tr>
+	  </tbody>
+	  <thead>
+        <tr>
+          <th>Employee ID </th>
+		  <th>Manager ID</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td><input class="form-control" ng-model="emp.emp_id" required="true" placeholder="Employee Id"></td>
+		  <td><input class="form-control" ng-model="emp.man_id" required="true" placeholder="Manager Id"></td>
+		</tr>
+	  </tbody>
+	  <thead>
+        <tr>
+          <th>Department Name</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td><input class="form-control" ng-model="emp.department" required="true" placeholder="Department"></td>
+		</tr>
+	  </tbody>
+	 </table>
+	
+	
+          
+    
+      
+          
+    <br><h4>Employee Evaluation</h4>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Evaluation Metrics</th>
+          <th>Select the appropriate Rating for each Metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proficiency in meeting targets</td>
+          <td class="preference">
+            <input type="radio" name="q1" ng-model="emp.q1" value="1" required=""> Below Average <br>
+            <input type="radio" name="q1" ng-model="emp.q1" value="2"> Average <br>
+            <input type="radio" name="q1" ng-model="emp.q1" value="3"> Good <br>
+            <input type="radio" name="q1" ng-model="emp.q1" value="4"> Above Average <br> 
+            <input type="radio" name="q1" ng-model="emp.q1" value="5"> Exceeding Expectations <br> 
+          </td>
+        </tr>
+        <tr>   
+          <td>Work Ethics</td>
+          <td class="preference">
+            <input type="radio" name="q2" ng-model="emp.q2" value="1" required=""> Below Average <br>
+            <input type="radio" name="q2" ng-model="emp.q2" value="2"> Average <br>
+            <input type="radio" name="q2" ng-model="emp.q2" value="3"> Good <br>
+            <input type="radio" name="q2" ng-model="emp.q2" value="4"> Above Average <br>
+            <input type="radio" name="q2" ng-model="emp.q2" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Extent of Contribution to the Growth of the Team</td>
+          <td class="preference">
+            <input type="radio" name="q3" ng-model="emp.q3" value="1" required=""> Below Average <br>
+            <input type="radio" name="q3" ng-model="emp.q3" value="2"> Average <br>
+            <input type="radio" name="q3" ng-model="emp.q3" value="3"> Good <br>
+            <input type="radio" name="q3" ng-model="emp.q3" value="4"> Above Average <br>
+            <input type="radio" name="q3" ng-model="emp.q3" value="5"> Exceeding Expectations <br>
+          </td>
+        </td>
+        <tr>
+          <td>Extent of Contribution to the Growth of the Organization</td>
+          <td class="preference">
+            <input type="radio" name="q4" ng-model="emp.q4" value="1" required=""> Below Average <br>
+            <input type="radio" name="q4" ng-model="emp.q4" value="2"> Average <br>
+            <input type="radio" name="q4" ng-model="emp.q4" value="3"> Good <br>
+            <input type="radio" name="q4" ng-model="emp.q4" value="4"> Above Average <br>
+            <input type="radio" name="q4" ng-model="emp.q4" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Creativity and Ideas</td>
+          <td class="preference">
+            <input type="radio" name="q5" ng-model="emp.q5" value="1" required=""> Below Average <br>
+            <input type="radio" name="q5" ng-model="emp.q5" value="2"> Average <br>
+            <input type="radio" name="q5" ng-model="emp.q5" value="3"> Good <br>
+            <input type="radio" name="q5" ng-model="emp.q5" value="4"> Above Average <br>
+            <input type="radio" name="q5" ng-model="emp.q5" value="5"> Exceeding Expectations <br>
+          </td>
+
+        </tr>
+        <tr>
+          <td>Growth in Technical Aspects</td>
+          <td class="preference">
+            <input type="radio" name="q6" ng-model="emp.q6" value="1" required=""> Below Average <br>
+            <input type="radio" name="q6" ng-model="emp.q6" value="2"> Average <br>
+            <input type="radio" name="q6" ng-model="emp.q6" value="3"> Good <br>
+            <input type="radio" name="q6" ng-model="emp.q6" value="4"> Above Average <br>
+            <input type="radio" name="q6" ng-model="emp.q6" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Problem Solving Skills</td>
+          <td class="preference">
+            <input type="radio" name="q7" ng-model="emp.q7" value="1" required=""> Below Average <br>
+            <input type="radio" name="q7" ng-model="emp.q7" value="2"> Average <br>
+            <input type="radio" name="q7" ng-model="emp.q7" value="3"> Good <br>
+            <input type="radio" name="q7" ng-model="emp.q7" value="4"> Above Average <br>
+            <input type="radio" name="q7" ng-model="emp.q7" value="5"> Exceeding Expectations <br>
+           </td>
+        </tr>
+        <tr>
+          <td>Ability to meet Deadlines</td>
+          <td class="preference">
+            <input type="radio" name="q8" ng-model="emp.q8" value="1" required=""> Below Average <br>
+            <input type="radio" name="q8" ng-model="emp.q8" value="2"> Average <br>
+            <input type="radio" name="q8" ng-model="emp.q8" value="3"> Good <br>
+            <input type="radio" name="q8" ng-model="emp.q8" value="4"> Above Average <br>
+            <input type="radio" name="q8" ng-model="emp.q8" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Extent to which Personal and Team Efforts were balanced</td>
+          <td class="preference">
+            <input type="radio" name="q9" ng-model="emp.q9" value="1" required=""> Below Average <br>
+            <input type="radio" name="q9" ng-model="emp.q9" value="2"> Average <br>
+            <input type="radio" name="q9" ng-model="emp.q9" value="3"> Good <br>
+            <input type="radio" name="q9" ng-model="emp.q9" value="4"> Above Average <br>
+            <input type="radio" name="q9" ng-model="emp.q9" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Extent to which New Initiatives were Taken</td>
+          <td class="preference">
+            <input type="radio" name="q10" ng-model="emp.q10" value="1" required=""> Below Average <br>
+            <input type="radio" name="q10" ng-model="emp.q10" value="2"> Average <br>
+            <input type="radio" name="q10" ng-model="emp.q10" value="3"> Good <br>
+            <input type="radio" name="q10" ng-model="emp.q10" value="4"> Above Average <br>
+            <input type="radio" name="q10" ng-model="emp.q10" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+        <tr>
+          <td>Adjustablity</td>
+          <td class="preference">
+            <input type="radio" name="q11" ng-model="emp.q11" value="1" required=""> Below Average <br>
+            <input type="radio" name="q11" ng-model="emp.q11" value="2"> Average <br>
+            <input type="radio" name="q11" ng-model="emp.q11" value="3"> Good <br>
+            <input type="radio" name="q11" ng-model="emp.q11" value="4"> Above Average <br>
+            <input type="radio" name="q11" ng-model="emp.q11" value="5"> Exceeding Expectations <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	
+    <br><h4>Optional Feedback (Include any promotions, demotions, changes in team, salary cuts, etc here)</h4>
+    <div>
+      <textarea name="remarks" rows="6" class="remark" placeholder="Type here" style="color: black";   ng-model="emp.remark"></textarea>
+    </div><br>
+    <div class = "text-center">
+    <button class="btnn"  ng-click="add(emp)" ng-if="!emp._id" type="submit" ng-disabled="!Appraisal.$valid">Submit</button>
+            <div class="btn-group">
+              <button class="btnn" ng-click="update(emp)" ng-if="emp._id" type="submit">Update</button>
+              <br>
+              <br>
+              <button class="btnn" ng-click="deselect()" ng-if="emp._id">Clear</button>
+            </div>
+      <br>
+      <br>	
+      	  
+      <button class="btnn" ng-click="ShowFill()">Review another Employee</button>
+	  <br>
+	  <br>
+      <button class="btnn" style="{'text-align':'center'}" ng-click="ShowResult()">View Filled Forms</button>
+	  
+    
+    </div>
+	</div>
+    </form>
+    </div>
+
+
+    <!--View Form Part-->
+    <div ng-show='viewCtrl'>
+
+      <button class="btnn"  ng-click="ShowResult()">Back</button>
+      <div class="w3l-login-form">
+
+    <table class="table">
+      <thead>
+        <tr>
+		  
+          <th>Employee Name</th>
+		  <th>Manager Name</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td>{{emp.name}}</td>
+		  <td>{{emp.mname}}</td>
+		</tr>
+	  </tbody>
+	  <thead>
+        <tr>
+          <th>Employee ID </th>
+		  <th>Manager ID</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td>{{emp.emp_id}}</td>
+		  <td>{{emp.man_id}}</td>
+		</tr>
+	  </tbody>
+	  <thead>
+        <tr>
+          <th>Department Name</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+		  <td>{{emp.department}}</td>
+		</tr>
+	  </tbody>
+	 </table>
+    
+    
+    <br><h4>Employee Evaluation Results</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Performance Metrics</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proficiency in meeting targets </td>
+          <td>{{emp.q1}}/5</td>
+        </tr>
+        <tr>   
+          <td>Work Ethics</td>
+          <td>{{emp.q2}}/5</td>
+          
+        </tr>
+        <tr>
+          <td>Extent of contribution to the Growth of the Team</td>
+          <td>{{emp.q3}}/5</td>
+        </td>
+        <tr>
+          <td>Extent of Contribution to the Growth of the Organization</td>
+          <td>{{emp.q4}}/5</td>
+        </tr>
+        <tr>
+          <td>Creativity and Ideas</td>
+          <td>{{emp.q5}}/5</td>
+
+        </tr>
+        <tr>
+          <td>Growth in Technical Aspects</td>
+          <td>{{emp.q6}}/5</td>
+        </tr>
+        <tr>
+          <td>Problem Solving Skills</td>
+          <td>{{emp.q7}}/5</td>
+        </tr>
+        <tr>
+          <td>Ability to meet Deadlines</td>
+          <td>{{emp.q8}}/5</td>
+        </tr>
+        <tr>
+          <td>Extent to which Personal and Team Efforts were balanced</td>
+          <td>{{emp.q9}}/5</td>
+        </tr>
+        <tr>
+          <td>Extent to which new Initiatives were Taken</td>
+          <td>{{emp.q10}}/5</td>
+        </tr>
+        <tr>
+          <td>Ajustability</td>
+          <td>{{emp.q11}}/5</td>
+        </tr>
+      </tbody>
+    </table>
+    <br><h4>Optional Feedback</h4>
+    <div>
+      <p>{{emp.remark}}</p>
+    </div><br>
+    </div>
+    </div>
+
+    <!--View All Results Part-->
+
+    <div ng-show='resultCtrl'>
+      <div class="w3l-login-form">
+
+      <button class="btnn" ng-click="ShowFill()">Back</button>
+<br> 
+<br>
+	
+    <h2>Forms Filled</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Employee Id</th>
+          <th>Department</th>
+          <!--<th>&nbsp;</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="emp in emps">
+          <td>{{emp.name}}</td>
+          <td>{{emp.emp_id}}</td>
+          <td>{{emp.department}}</td>
+          <td>
+            <button class="btnn" ng-click="view(emp._id)" >View</button>
+            <br>
+            <br>
+            
+              <button class="btnn" ng-click="remove(emp)">Delete</button>
+              <br>
+              <br>
+              <button class="btnn" ng-click="edit(emp._id)">Update</button>
+            
+              
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+	
+
+  </div>
+
+<div data-loading></div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-resource.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/ngProgress.min.js"></script>
+<script src="js/toaster.js"></script>
+<script src="app/app.js"></script>
+<script src="app/products.js"></script>
+<script src="app/employees.js"></script>
+</body>
+</html>
