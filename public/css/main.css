@@ -1,0 +1,16 @@
+.center-block { float:none !important; }
+.special-padding { padding:0px 0px;}
+
+
+.table { color: #fff;
+ }
+
+.main-form { padding-top:100px;}
+
+.head{padding-top: 20px; padding-bottom: 20px; text-align: center;}
+
+.preference{width: 50%;}
+
+.remark{width: 90%;}
+
+.btn-header{width: 20%; height: 40px; }
